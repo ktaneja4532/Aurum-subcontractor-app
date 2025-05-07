@@ -390,25 +390,19 @@ from textblob import TextBlob
 import numpy as np
 
 # --- Ask user for ratings in 5 categories ---
-print("\n📝 Please rate the subcontractor from 1 (Very Poor) to 5 (Excellent):")
+import streamlit as st
+
+st.subheader("📝 Please rate the subcontractor from 1 (Very Poor) to 5 (Excellent):")
 
 categories = ["Punctuality", "Communication", "Skill Fit", "Professionalism", "Overall Satisfaction"]
 ratings = []
 
 for category in categories:
-    while True:
-        try:
-            score = int(input(f"{category}: "))
-            if 1 <= score <= 5:
-                ratings.append(score)
-                break
-            else:
-                print("⚠️ Please enter a number between 1 and 5.")
-        except:
-            print("⚠️ Invalid input. Please enter a number.")
+    score = st.slider(f"{category} Rating", min_value=1, max_value=5, value=3)
+    ratings.append(score)
 
-# --- Ask for additional comments ---
-feedback_text = input("\n💬 Additional comments (optional): ")
+feedback_text = st.text_area("💬 Additional comments (optional):")
+
 blob = TextBlob(feedback_text)
 sentiment_score = blob.sentiment.polarity
 
