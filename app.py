@@ -149,8 +149,7 @@ print("Final Recommended Subcontractor:", decoded_name)
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 
-# Load the dataset
-df = pd.read_csv('/content/drive/MyDrive/Aurum AI ML/aurum_recommendation_data.csv')  # Adjust path if needed
+df = pd.read_csv('aurum_recommendation_data.csv')
 
 # Create a copy for processing
 df_prepared = df.copy()
