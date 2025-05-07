@@ -1,0 +1,101 @@
+Job_ID,Skill_Required,Job_Location,Subcontractor_Name,Subcontractor_Skills,Distance_km,Preference_Match,Job_Outcome,Job_Duration_hrs,Experience_Level_Yrs
+1,Patrol,Brisbane,Zhang,"Alarm, Guard Duty",11,Yes,Success,7,3
+2,CCTV Setup,Sydney,Ahmed,"Patrol, Guard Duty",9,Yes,Success,3,2
+3,Event Security,Brisbane,Carlos,"Event Security, Patrol",4,Yes,Success,1,5
+4,Patrol,Adelaide,Carlos,"Event Security, Patrol",16,Yes,Failed,3,2
+5,Access Control,Brisbane,Carlos,"Event Security, Patrol",14,Yes,Success,6,8
+6,Guard Duty,Perth,Priya,"Access Control, CCTV",1,No,Success,3,4
+7,Alarm Install,Sydney,Lisa,Guard Duty,24,No,Success,6,6
+8,CCTV Setup,Brisbane,John,"CCTV, Alarm",18,Yes,Success,7,2
+9,Alarm Install,Melbourne,Zhang,"Alarm, Guard Duty",5,No,Success,8,7
+10,Guard Duty,Adelaide,Ahmed,"Patrol, Guard Duty",22,No,Success,3,8
+11,CCTV Setup,Adelaide,Ahmed,"Patrol, Guard Duty",6,No,Failed,7,9
+12,Access Control,Brisbane,Nina,"Alarm Install, Access Control",8,No,Success,3,3
+13,Patrol,Adelaide,Lisa,Guard Duty,5,Yes,Success,5,7
+14,Guard Duty,Sydney,Priya,"Access Control, CCTV",10,No,Failed,7,9
+15,CCTV Setup,Melbourne,Zhang,"Alarm, Guard Duty",23,Yes,Success,1,9
+16,Alarm Install,Brisbane,Priya,"Access Control, CCTV",6,Yes,Success,3,10
+17,CCTV Setup,Brisbane,Maria,"Patrol, CCTV",20,No,Success,3,2
+18,CCTV Setup,Melbourne,Lisa,Guard Duty,28,No,Success,3,9
+19,Event Security,Sydney,Lisa,Guard Duty,27,Yes,Success,7,7
+20,Patrol,Brisbane,Carlos,"Event Security, Patrol",25,Yes,Success,6,4
+21,Event Security,Sydney,Zhang,"Alarm, Guard Duty",7,Yes,Success,7,5
+22,Event Security,Melbourne,Nina,"Alarm Install, Access Control",19,Yes,Success,7,2
+23,Alarm Install,Melbourne,Lisa,Guard Duty,19,Yes,Success,3,9
+24,Event Security,Brisbane,Maria,"Patrol, CCTV",3,Yes,Success,6,8
+25,Event Security,Brisbane,Lisa,Guard Duty,13,No,Success,7,5
+26,Guard Duty,Perth,Carlos,"Event Security, Patrol",8,No,Success,7,7
+27,Access Control,Perth,Lisa,Guard Duty,14,No,Success,3,7
+28,CCTV Setup,Sydney,Lisa,Guard Duty,26,Yes,Success,2,1
+29,Guard Duty,Sydney,John,"CCTV, Alarm",7,No,Failed,3,4
+30,Access Control,Sydney,Carlos,"Event Security, Patrol",27,No,Success,8,4
+31,Access Control,Perth,Priya,"Access Control, CCTV",11,No,Failed,5,5
+32,Event Security,Adelaide,John,"CCTV, Alarm",12,Yes,Success,1,5
+33,Patrol,Adelaide,Nina,"Alarm Install, Access Control",22,Yes,Failed,7,5
+34,Patrol,Melbourne,Lisa,Guard Duty,11,No,Failed,1,4
+35,Alarm Install,Sydney,Maria,"Patrol, CCTV",4,Yes,Success,2,5
+36,CCTV Setup,Adelaide,Lisa,Guard Duty,8,Yes,Success,6,5
+37,Guard Duty,Sydney,Ahmed,"Patrol, Guard Duty",4,Yes,Failed,4,1
+38,CCTV Setup,Perth,Zhang,"Alarm, Guard Duty",18,No,Success,1,2
+39,Alarm Install,Melbourne,Priya,"Access Control, CCTV",14,No,Success,5,7
+40,Guard Duty,Sydney,Maria,"Patrol, CCTV",30,No,Success,1,4
+41,Guard Duty,Melbourne,Priya,"Access Control, CCTV",10,Yes,Failed,1,8
+42,Alarm Install,Adelaide,Ahmed,"Patrol, Guard Duty",2,No,Failed,8,1
+43,Alarm Install,Melbourne,Lisa,Guard Duty,21,Yes,Failed,3,1
+44,Alarm Install,Sydney,John,"CCTV, Alarm",16,No,Success,7,6
+45,Patrol,Adelaide,Lisa,Guard Duty,7,Yes,Failed,3,6
+46,Event Security,Adelaide,John,"CCTV, Alarm",5,No,Success,5,2
+47,Guard Duty,Sydney,Ahmed,"Patrol, Guard Duty",21,No,Failed,5,9
+48,Patrol,Brisbane,Carlos,"Event Security, Patrol",30,No,Success,8,6
+49,Alarm Install,Melbourne,Ahmed,"Patrol, Guard Duty",14,Yes,Failed,5,2
+50,Patrol,Sydney,John,"CCTV, Alarm",28,No,Failed,5,1
+51,CCTV Setup,Sydney,John,"CCTV, Alarm",20,Yes,Success,4,4
+52,CCTV Setup,Melbourne,Ahmed,"Patrol, Guard Duty",28,Yes,Failed,3,1
+53,Guard Duty,Adelaide,Priya,"Access Control, CCTV",24,Yes,Success,5,7
+54,Access Control,Adelaide,Ahmed,"Patrol, Guard Duty",9,No,Failed,7,2
+55,Event Security,Adelaide,Carlos,"Event Security, Patrol",10,Yes,Success,6,3
+56,Access Control,Brisbane,John,"CCTV, Alarm",14,No,Success,6,4
+57,Access Control,Adelaide,Maria,"Patrol, CCTV",16,No,Failed,6,4
+58,Patrol,Adelaide,Maria,"Patrol, CCTV",20,No,Failed,4,5
+59,Access Control,Melbourne,Maria,"Patrol, CCTV",19,Yes,Success,4,2
+60,CCTV Setup,Adelaide,Lisa,Guard Duty,8,No,Success,7,2
+61,Event Security,Perth,Lisa,Guard Duty,5,No,Success,3,8
+62,Access Control,Sydney,Priya,"Access Control, CCTV",11,No,Success,4,6
+63,Alarm Install,Sydney,Lisa,Guard Duty,4,No,Success,6,6
+64,Event Security,Adelaide,Carlos,"Event Security, Patrol",3,No,Success,1,2
+65,Event Security,Adelaide,John,"CCTV, Alarm",19,Yes,Success,6,10
+66,Event Security,Melbourne,Carlos,"Event Security, Patrol",19,Yes,Success,4,9
+67,CCTV Setup,Sydney,Priya,"Access Control, CCTV",5,No,Failed,6,7
+68,Alarm Install,Perth,Ahmed,"Patrol, Guard Duty",27,No,Success,6,4
+69,Alarm Install,Melbourne,Zhang,"Alarm, Guard Duty",22,No,Success,8,5
+70,CCTV Setup,Melbourne,Priya,"Access Control, CCTV",25,No,Failed,1,4
+71,Access Control,Adelaide,John,"CCTV, Alarm",26,No,Failed,2,6
+72,CCTV Setup,Perth,Zhang,"Alarm, Guard Duty",12,Yes,Success,4,7
+73,Event Security,Perth,Priya,"Access Control, CCTV",4,No,Success,5,2
+74,Guard Duty,Brisbane,Carlos,"Event Security, Patrol",28,Yes,Failed,5,8
+75,Guard Duty,Melbourne,Nina,"Alarm Install, Access Control",24,Yes,Success,6,3
+76,Access Control,Sydney,John,"CCTV, Alarm",30,No,Success,2,4
+77,Guard Duty,Brisbane,Zhang,"Alarm, Guard Duty",26,Yes,Success,8,5
+78,Patrol,Sydney,Zhang,"Alarm, Guard Duty",22,No,Failed,2,8
+79,Access Control,Brisbane,Maria,"Patrol, CCTV",9,Yes,Success,8,5
+80,Guard Duty,Brisbane,Carlos,"Event Security, Patrol",2,Yes,Success,7,5
+81,Alarm Install,Perth,Nina,"Alarm Install, Access Control",22,No,Failed,2,10
+82,Event Security,Melbourne,Carlos,"Event Security, Patrol",18,No,Success,5,2
+83,Event Security,Brisbane,Priya,"Access Control, CCTV",15,Yes,Success,5,10
+84,Alarm Install,Melbourne,Zhang,"Alarm, Guard Duty",13,No,Success,7,3
+85,Alarm Install,Brisbane,Carlos,"Event Security, Patrol",5,No,Success,6,8
+86,Alarm Install,Sydney,Priya,"Access Control, CCTV",1,No,Success,1,7
+87,Guard Duty,Melbourne,Maria,"Patrol, CCTV",2,Yes,Failed,4,9
+88,Patrol,Sydney,Nina,"Alarm Install, Access Control",3,Yes,Success,5,5
+89,Event Security,Adelaide,Nina,"Alarm Install, Access Control",19,No,Success,1,3
+90,CCTV Setup,Brisbane,Lisa,Guard Duty,10,No,Failed,5,6
+91,Event Security,Perth,Carlos,"Event Security, Patrol",13,Yes,Success,2,6
+92,CCTV Setup,Brisbane,Maria,"Patrol, CCTV",30,No,Success,8,6
+93,Event Security,Melbourne,Priya,"Access Control, CCTV",20,Yes,Success,7,4
+94,CCTV Setup,Adelaide,Nina,"Alarm Install, Access Control",7,No,Success,2,6
+95,CCTV Setup,Perth,Maria,"Patrol, CCTV",6,Yes,Success,6,1
+96,Access Control,Brisbane,Maria,"Patrol, CCTV",22,Yes,Failed,1,4
+97,Patrol,Melbourne,John,"CCTV, Alarm",12,No,Success,3,2
+98,Guard Duty,Sydney,Ahmed,"Patrol, Guard Duty",17,No,Success,1,4
+99,Patrol,Perth,Nina,"Alarm Install, Access Control",8,No,Success,2,2
+100,Event Security,Brisbane,Lisa,Guard Duty,12,No,Success,5,8
