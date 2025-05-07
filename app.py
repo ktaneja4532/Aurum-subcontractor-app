@@ -406,43 +406,47 @@ feedback_text = st.text_area("💬 Additional comments (optional):")
 blob = TextBlob(feedback_text)
 sentiment_score = blob.sentiment.polarity
 
-# Average rating (out of 5)
-avg_rating = sum(ratings) / len(ratings)
+if st.button("Submit Feedback"):
+    # Calculate average rating
+    avg_rating = sum(ratings) / len(ratings)
 
-# Normalize it to range [-1, 1] → (for Q-learning reward)
-rating_reward = (avg_rating - 3) / 2  # 3 → neutral midpoint
+    # Normalize to [-1, 1]
+    rating_reward = (avg_rating - 3) / 2
 
-# Combine with sentiment score if available
-if feedback_text.strip():
-    final_reward = (rating_reward + sentiment_score) / 2
-else:
-    final_reward = rating_reward
+    # Sentiment score from comments
+    blob = TextBlob(feedback_text)
+    sentiment_score = blob.sentiment.polarity
 
-# Clamp reward to range [-1, 1]
-final_reward = max(min(final_reward, 1), -1)
+    # Combine both scores
+    if feedback_text.strip():
+        final_reward = (rating_reward + sentiment_score) / 2
+    else:
+        final_reward = rating_reward
 
-# Get the selected action index
-selected_idx = np.argmax(q_table[new_job_state])
+    final_reward = max(min(final_reward, 1), -1)  # clamp
 
-# Get current Q-value
-current_q = q_table[new_job_state][selected_idx]
-max_future_q = np.max(q_table[new_job_state])
+    # Q-table update
+    selected_idx = np.argmax(q_table[new_job_state])
+    current_q = q_table[new_job_state][selected_idx]
+    max_future_q = np.max(q_table[new_job_state])
 
-# Update Q-table
-q_table[new_job_state][selected_idx] = current_q + alpha * (final_reward + gamma * max_future_q - current_q)
+    q_table[new_job_state][selected_idx] = current_q + alpha * (final_reward + gamma * max_future_q - current_q)
 
-# Interpret final result
-print(f"\n🧠 Feedback reward computed: {round(final_reward, 3)}")
-if final_reward < -0.2:
-    print("⚠️ Negative experience detected. Finding better subcontractors...")
-    q_values = q_table[new_job_state].copy()
-    q_values[selected_idx] = -np.inf  # exclude current
+    # Display results
+    st.success(f"🧠 Feedback reward computed: {round(final_reward, 3)}")
 
-    alt_indices = np.argsort(q_values)[::-1][:2]
-    alternate_names = label_encoders["Subcontractor_Name"].inverse_transform(alt_indices)
+    if final_reward < -0.2:
+        st.warning("⚠️ Negative experience detected. Finding better subcontractors...")
 
-    print("\n🔁 Suggested Alternate Subcontractors:")
-    for i, idx in enumerate(alt_indices):
-        print(f"- {alternate_names[i]} (Q-Score: {round(q_values[idx], 4)})")
-else:
-    print("✅ Thank you! Feedback received and Q-table successfully updated.")
+        q_values = q_table[new_job_state].copy()
+        q_values[selected_idx] = -np.inf  # exclude current
+
+        alt_indices = np.argsort(q_values)[::-1][:2]
+        alternate_names = label_encoders["Subcontractor_Name"].inverse_transform(alt_indices)
+
+        st.markdown("🔁 **Suggested Alternate Subcontractors:**")
+        for i, idx in enumerate(alt_indices):
+            st.write(f"- {alternate_names[i]} (Q-Score: {round(q_values[idx], 4)})")
+    else:
+        st.success("✅ Thank you! Feedback received and Q-table successfully updated.")
+
