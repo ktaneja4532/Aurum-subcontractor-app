@@ -7,13 +7,13 @@ Original file is located at
     https://colab.research.google.com/drive/1RZtvgk6cwkpDjdLI6w8Ikl8RI385iopP
 """
 
-from google.colab import drive
-drive.mount('/content/drive')
+
 
 import pandas as pd
 
 
-file_path = '/content/drive/MyDrive/Aurum AI ML/aurum_recommendation_data.csv'
+file_path = 'aurum_recommendation_data.csv'
+
 
 df = pd.read_csv(file_path)
 
