@@ -28,21 +28,9 @@ with open("models/scaler.pkl", "rb") as f:
 # Load data (optional, only for displaying available skills or debugging)
 df = pd.read_csv("aurum_recommendation_data.csv")
 
-import streamlit as st
 
 
 
-import pandas as pd
-
-
-file_path = 'aurum_recommendation_data.csv'
-
-
-df = pd.read_csv(file_path)
-
-df.head()
-
-print(df.head(5))
 
 from sklearn.preprocessing import LabelEncoder
 
