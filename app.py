@@ -23,7 +23,7 @@ with open("models/label_encoders.pkl", "rb") as f:
 with open("models/scaler.pkl", "rb") as f:
     scaler = pickle.load(f)
 
-# Load raw data for debugging or dropdown population
+# Load raw data for dropdowns
 df = pd.read_csv("aurum_recommendation_data.csv")
 
 st.title("🔍 Subcontractor Recommendation System")
@@ -63,16 +63,13 @@ new_job_state = tuple([
 ])
 
 # --- Recommend Best Match ---
-def recommend_closest_match(input_state, q_table, actions):
+def get_closest_q_values(input_state, q_table):
     input_state = np.array(input_state).reshape(1, -1)
     q_keys = np.array([list(k) for k in q_table.keys()])
-    if q_keys.shape[1] != input_state.shape[1]:
-        raise ValueError("Mismatch in state dimensions")
     distances = cdist(input_state, q_keys)
     closest_idx = np.argmin(distances)
     closest_state = tuple(q_keys[closest_idx])
-    best_action_index = np.argmax(q_table[closest_state])
-    return best_action_index
+    return q_table[closest_state]
 
 # Fetch actions
 actions = df["Subcontractor_Name"].unique()
@@ -80,13 +77,21 @@ actions_encoded = label_encoders["Subcontractor_Name"].transform(actions)
 
 if st.button("🔎 Recommend Subcontractor"):
     if new_job_state in q_table:
-        recommended_idx = np.argmax(q_table[new_job_state])
+        q_values = q_table[new_job_state]
     else:
-        recommended_idx = recommend_closest_match(new_job_state, q_table, actions_encoded)
+        q_values = get_closest_q_values(new_job_state, q_table)
 
-    recommended_name = label_encoders['Subcontractor_Name'].inverse_transform([recommended_idx])[0]
-    st.success(f"✅ Recommended Subcontractor: **{recommended_name}**")
+    # Get top 3 recommendations
+    top_indices = np.argsort(q_values)[::-1][:3]
+    top_names = label_encoders["Subcontractor_Name"].inverse_transform(top_indices)
 
+    st.success("✅ Top Recommended Subcontractors:")
+    for i, idx in enumerate(top_indices):
+        st.write(f"{i+1}. {top_names[i]} (Q-Score: {round(q_values[idx], 4)})")
+
+    recommended_idx = top_indices[0]  # For feedback
+
+    # --- Feedback Section ---
     st.subheader("📝 Provide Feedback")
     categories = ["Punctuality", "Communication", "Skill Fit", "Professionalism", "Overall Satisfaction"]
     ratings = [st.slider(cat, 1, 5, 3) for cat in categories]
@@ -99,15 +104,15 @@ if st.button("🔎 Recommend Subcontractor"):
         final_reward = (rating_reward + sentiment_score) / 2 if feedback_text.strip() else rating_reward
         final_reward = max(min(final_reward, 1), -1)
 
-        current_q = q_table[new_job_state][recommended_idx]
-        max_future_q = np.max(q_table[new_job_state])
-        q_table[new_job_state][recommended_idx] = current_q + 0.1 * (final_reward + 0.9 * max_future_q - current_q)
+        current_q = q_values[recommended_idx]
+        max_future_q = np.max(q_values)
+        q_values[recommended_idx] = current_q + 0.1 * (final_reward + 0.9 * max_future_q - current_q)
 
         st.success(f"🧠 Feedback reward computed: {round(final_reward, 3)}")
 
         if final_reward < -0.2:
             st.warning("⚠️ Negative experience detected. Suggesting alternatives:")
-            q_copy = q_table[new_job_state].copy()
+            q_copy = q_values.copy()
             q_copy[recommended_idx] = -np.inf
             alt_indices = np.argsort(q_copy)[::-1][:2]
             alt_names = label_encoders["Subcontractor_Name"].inverse_transform(alt_indices)
